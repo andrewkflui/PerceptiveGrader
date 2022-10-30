@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Perceptive Grader</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" /> -->
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+		<link rel="stylesheet" href="src/index.css" crossorigin="anonymous" /> -->
+		
+		<link rel="stylesheet" href="lib/bootstrap/bootstrap@4.5.3.min.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="lib/bootstrap-vue/bootstrap-vue@2.21.2.min.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="src/index.css" crossorigin="anonymous" />
+
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    	<script type="text/javascript" src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    	<script src="https://unpkg.com/@ivanv/vue-collapse-transition"></script>
+    	<script type="text/javascript" src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    	<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.2.1/chartjs-plugin-annotation.min.js" integrity="sha512-ooJBPaW5ClG2gzDFT6KIKVeA8Pcie6InrV/gFP+RH6P2hrCJNVjaggZrxT/CeBakKwOlSUwHEwMCa5iny0uJtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script> -->
+
+		<script type="text/javascript" src="lib/vue/vue@2.6.1.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/bootstrap-vue/bootstrap-vue@2.21.2.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/bootstrap-vue/bootstrap-vue-icons@2.21.2.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/vue-collapse-transition/vue-collapse-transition@1.0.2.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/axios/axios@0.24.0.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/chartjs/chartjs@3.6.0.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/chartjs-plugin-annotation/chartjs-plugin-annotation@1.2.1.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/d3/d3-color@3.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/d3/d3-interpolate@3.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="lib/d3/d3-scale-chromatic@3.min.js" crossorigin="anonymous"></script>
+    	<!-- reference: https://github.com/dexie/Dexie.js -->
+    	<!-- <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script> -->
+		<script type="module" src="src/index.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="main-content">
+			<b-container fluid>
+				<div v-if="loading" class="text-white loading">
+					<div>
+						Loading
+						<b-spinner type="grow"></b-spinner>
+						<b-spinner type="grow"></b-spinner>
+						<b-spinner type="grow"></b-spinner>
+					</div>
+				</div>
+
+				<div id="information-panel" class="information-panel">
+					<div class="fixed-panel" :class="{'expanded': showProjectInfoDetails}">
+						<div>
+							<action-button title="Create Project" variant="outline-light"
+								:callback="getProjectOptions"></action-button>
+							<action-button title="Load Project" variant="outline-light"
+								:callback="() => getProjectList(event, 'load')"></action-button>
+							<action-button v-if="project" title="Save Project" variant="light"
+								:callback="saveProject"></action-button>
+							<action-button title="Delete Project" variant="danger"
+								:callback="() => getProjectList(event, 'delete')"></action-button>
+						</div>
+
+						<div v-if="project && project.algorithm && project.algorithm.subspaces" class="project-info">
+							<b-row class="no-gutters">
+								<b-col><h2 class="text-white">{{project.name}}</h2></b-col>
+								<b-col cols="2" class="text-right">
+									<action-button :title="showProjectInfoDetails ? 'Show Less' : 'Show More'" variant="secondary" :icon="showProjectInfoDetails ? 'chevron-up' : 'chevron-down'" :callback="expandProjectInfoDetails">
+									</action-button>
+								</b-col>
+							</b-row>
+							<collapse-transition>
+								<div v-if="showProjectInfoDetails" class="collapse-panel">
+									<p class="text-white question-text">{{project.dataset.question.text}}</p>
+									<b-row class="no-gutters">
+										<b-col>
+											<attribute name="Encoder(s)" v-bind:value="String(project.encoders)"></attribute>
+											<attribute name="Grades" v-bind:value="String(project.possible_grades)"></attribute>
+											<attribute name="Subspaces" v-bind:value="project.subspace_param_list_key"></attribute>
+											<attribute name="Number of Answers" v-bind:value="project.algorithm.num_data + ' (Encapsulated to ' + project.algorithm.reduced_num_data + ')'"></attribute>
+											<div v-if="project.results != null" class="section">
+												<attribute name="Marked" v-bind:value="getGradeDistributionString('Marked')"></attribute>
+												<attribute name="Predicted" v-bind:value="getGradeDistributionString('Predicted')"></attribute>
+											</div>
+										</b-col>
+										<b-col cols="2"></b-col>
+										<b-col><canvas ref="rankedPGVLineChart"></canvas></b-col>
+									</b-row>
+								</div>
+							</collapse-transition>
+						</div>
+					</div>
+				</div>
+
+				<div v-if="project && project.algorithm" id="project-details" class="project-details">
+					<div align="right">
+						<action-button title="Add Data" variant="light" v-b-modal.modal-add-data></action-button>
+					</div>
+					<div class="overview-charts">
+						<b-row class="no-gutters">
+							<!-- <b-col>
+								<div id="data-distributions-bubble-chart">
+									<canvas ref="dataDistributionsBubbleChart"></canvas>
+								</div>
+							</b-col> -->
+							<b-col cols="6"><canvas ref="dataDistributionsBubbleChart"></canvas></b-col>
+							<b-col cols="3"><canvas ref="gradeDistributionsDoughnutChart"></canvas></b-col>
+							<b-col cols="3"></b-col>
+						</b-row>
+						<b-row class="no-gutters">	
+							<b-col cols="6"><canvas ref="rankedDensityLineChart"></canvas></b-col>
+							<b-col cols="6"><canvas ref="rankedSpaciousnessLineChart"></canvas></b-col>
+						</b-row>
+					</div>
+				</div>
+
+				<div v-if="project && project.algorithm && project.algorithm.subspaces" class="algorithm-info">
+					<div class="adjustments">
+						<!-- <attribute name="RD Grade" v-bind:value="project.algorithm.rd_cutoff.toFixed(4) + ' (' + project.algorithm.default_rd_cutoff.toFixed(4) + (project.algorithm.rd_cutoff_adjustment >= 0 ? ' +' : ' ') + project.algorithm.rd_cutoff_adjustment + ')'" buttontitle="Adjust" v-b-modal.modal-rd></attribute> -->
+						<div class="adjustment">
+							<h4 class="text-light">Maximum Acceptable Semantic Deviation (MASD)</h4>
+							<attribute name="Current" v-bind:value="project.algorithm.rd_cutoff.toFixed(4) + ' (' + (project.algorithm.rd_cutoff_adjustment.toFixed(4) >= 0 ? ' +' : ' ') + project.algorithm.rd_cutoff_adjustment + ')'"></attribute>
+							<attribute name="Adjusted" v-bind:value="(parseFloat(project.algorithm.rd_cutoff) + parseFloat(form.rd_cutoff_adjustment)).toFixed(4) + ' (' + (form.rd_cutoff_adjustment >= 0 ? ' +' : ' ') + form.rd_cutoff_adjustment + ')'"></attribute>
+							<b-row>
+								<b-col cols="6">
+									<b-form ref="rdAdjustmentForm">
+										<label class="sr-only" for="rd-adjustment">Adjust MASD Grade</label>
+										<b-form-input name="rd-adjustment" type="range" :min="minRDAdjustmentValue" :max="maxRDAdjustmentValue" step="0.0001"variant="secondary" v-model="form.rd_cutoff_adjustment"></b-form-input>
+									</b-form>
+								</b-col>
+								<b-col>
+									<action-button title="Adjust" variant="light" :callback="() => adjustCutoff('rd_cutoff')"></action-button>
+								</b-col>
+							</b-row>
+						</div>
+						<div class="adjustment">
+							<h4 class="text-light">Remoteness Trigger for Anomalous Data (RTAD)</h4>
+							<attribute name="Current" v-bind:value="project.algorithm.delta_link_threshold.toFixed(4) + ' (' + (project.algorithm.delta_link_threshold_adjustment.toFixed(4) >= 0 ? ' +' : ' ') + project.algorithm.delta_link_threshold_adjustment + ')'"></attribute>
+							<attribute name="Adjusted" v-bind:value="(parseFloat(project.algorithm.delta_link_threshold) + parseFloat(form.delta_link_threshold_adjustment)).toFixed(4) + ' (' + (form.delta_link_threshold_adjustment >= 0 ? ' +' : ' ') + form.delta_link_threshold_adjustment + ')'"></attribute>
+							<b-row>
+								<b-col cols="6">
+									<b-form ref="deltaLinkthresholdAdjustmentForm">
+										<label class="sr-only" for="delta-link-threshold-adjustment">Adjust Delta-link Threshold</label>
+										<b-form-input name="delta-link-threshold-adjustment" type="range" :min="minDeltaLinkThresholdAdjustmentValue" :max="maxDeltaLinkThresholdAdjustmentValue" step="0.0001"variant="secondary" v-model="form.delta_link_threshold_adjustment"></b-form-input>
+									</b-form>
+								</b-col>
+								<b-col>
+									<action-button title="Adjust" variant="light" :callback="() => adjustCutoff('delta_link_threshold')"></action-button>
+								</b-col>
+							</b-row>
+						</div>
+					</div>
+					<div align="right">
+						<span ref="markedCount" class="text-light vertical-align-middle marked-count">Marked: {{Object.keys(project.algorithm.reduced_known_data_labels).length}} ( +{{this.markedCount}})</span>
+						<!-- <action-button title="Run" variant="light"
+							:callback="markAnswers"></action-button> -->
+						<action-button title="Run" variant="light"
+							:callback="markAnswers"></action-button>
+						<action-button	title="Export Result" variant="outline-light" :callback="exportResult"></action-button>
+					</div>
+					<!-- <div id="grade-distributions-doughnut-chart">
+						<canvas ref="gradeDistributionsDoughnutChart"></canvas>
+					</div> -->
+				</div>
+
+				<div v-if="project && project.algorithm && project.algorithm.subspaces" class="answer-list">
+					<div class="overflow-auto answer-table">
+						<b-table id="answer-table" ref="answerTable" caption="Encapsulated Answers" fixed striped bordered hover small dark selectable caption-top :tbody-tr-class="answerTableRowClass" :items="project.ordered_answer_list" :fields="answerFields" :select-mode="selectMode" :per-page="rowPerPage" :current-page="currentPage" @row-selected="answerSelected">
+							<template #table-caption>
+								<h4 class="text-light">Encapsulated Answers</h4>
+							</template>
+							<template #cell(index)="data">{{rowPerPage * (currentPage - 1) + data.index + 1}}</template>
+							<template #cell(markup)="data">
+								<div>
+									<!-- <b-form-checkbox size="sm" button button-variant="secondary" v-model="project.dataset.answers[getOriginalIndex(data.item)].markup" @change="markupChanged(data.item, $event)">
+										<span v-if="project.dataset.answers[getOriginalIndex(data.item)].markup" class="text-dark">
+											<b-icon icon="check"></b-icon>
+										</span>
+										<span v-if="!project.dataset.answers[getOriginalIndex(data.item)].markup">
+											<b-icon icon="square"></b-icon>
+										</span>
+									</b-form-checkbox> -->
+									<b-form-select class="form-select" v-model="project.dataset.answers[getOriginalIndex(data.item)].markup_class" @change="markupChanged(data.item, $event)">
+										<b-form-select-option v-for="option in markupClassOptions" :value="option.value">{{option.name}}</b-form-select-option>
+									</b-form-select>
+								</div>
+							</template>
+							<template #cell(id)="data">
+								<div>{{project.dataset.answers[getOriginalIndex(data.item)].id}}</div>
+							</template>
+							<template #cell(text)="data">
+								<div>{{project.dataset.answers[getOriginalIndex(data.item)].text}}</div>
+							</template>
+							<template #cell(assigned_grade)="data">
+								<div :set="value = getAssignedGrade(data.item)">
+									<div v-if="value[0]">
+										<b-form-select class="form-select" v-model="localLabels[data.item]" @change="answerGradeChanged(data.item, $event)">
+											<!-- <b-form-select-option v-if="project.results == null" :value="null">Unknown</b-form-select-option> -->
+											<b-form-select-option :value="null">
+												{{project.results == null ? "Unknown" : "Predicted " + project.results[getOriginalIndex(data.item)]}}
+											</b-form-select-option>
+											<b-form-select-option v-for="option in project.possible_grades" :value="option">{{option}}</b-form-select-option>
+										</b-form-select>
+									</div>
+									<div v-if="!value[0]">{{value[1]}}</div>
+								</div>
+							</template>
+						</b-table>
+					</div>
+					<div class="answer-pagination">
+						<b-pagination pills align="center" size="sm" variant="secondary" v-model="currentPage" :per-page="rowPerPage" :total-rows="project.ordered_answer_list.length" first-number last-number aria-controls="answer-table"></b-pagination>
+					</div>
+				</div>
+			</b-container>
+			<template>
+				<b-modal id="modal-create-project" ref="createProjectModal" title="Create Project"
+					ok-variant="secondary" cancel-variant="outline-light" @show="clearForm"
+					@ok="createProject" centered>
+					<div v-if="form.message" class="text-light modal-error-message">{{form.message}}</div>
+					<form ref="createProjectForm">
+						<b-form-group label="Project Name" label-for="project-name-input">
+							<b-form-input name="project-name-input" placeholder="Enter a project name" v-model="form.name" v-bind:class="{'normal': !(form.message && !form.name), 'error': form.message && !form.name}" required></b-form-input>
+						</b-form-group>
+						<b-form-group label="Dataset File" label-for="dataset-file-input">
+							 <b-form-file name="dataset-file-input" accept=".csv" placeholder="Choose a file or drop it here" drop-placeholder="Drop file here" v-model="form.file" v-bind:class="{'normal': !(form.message && !form.file), 'error': form.message && !form.file}" required></b-form-file>
+						</b-form-group>
+						<b-form-group label="Possible Grades" label-for="possible-grades-input">
+							<b-form-select name="possible-grade-input" class="form-select" size="sm" v-model="form.possible_grades_option" v-bind:class="{'normal': !(form.message && !form.possible_grades_option), 'error': form.message && !form.possible_grades_option}" required>
+								<b-form-select-option :value="null">Select a Grade List</b-form-select-option>
+								<b-form-select-option v-for="option in possible_grades_options" :value="option.key">{{String(option.value)}}</b-form-select-option>
+							</b-form-select>
+						</b-form-group>
+						<b-form-group label="Subspaces" label-for="subspaces-input">
+							<b-form-select name="subspaces-input" class="form-select" v-model="form.subspace_param_list_key" v-bind:class="{'normal': !(form.message && !form.subspace_param_list_key), 'error': form.message && !form.subspace_param_list_key}" required>
+								<b-form-select-option :value="null">Select a Subspace Combination</b-form-select-option>
+								<b-form-select-option v-for="option in subspace_param_list_key_options" :value="option">{{option}}</b-form-select-option>
+							</b-form-select>
+						</b-form-group>
+					</form>
+				</b-modal>
+			</template>
+			<template>
+				<b-modal id="modal-load-project" ref="loadProjectModal" title="Load Project"
+					ok-variant="secondary" cancel-variant="outline-light" @show="clearForm"
+					@ok="loadProject" centered>
+					<div v-if="form.message" class="text-light modal-error-message">{{form.message}}</div>
+					<form ref="loadProjectForm">
+						<b-form-group label="Name" label-for="project-name-input">
+							<b-form-select name="project-name-input" class="form-select" v-model="form.name" v-bind:class="{'normal': !(form.message && !form.name), 'error': form.message && !form.name}" :state="form.name" required>
+								<b-form-select-option :value="null">Select a Project</b-form-select-option>
+								<b-form-select-option v-for="option in project_list" :value="option">{{option}}</b-form-select-option>
+							</b-form-select>
+						</b-form-group>					
+					</form>
+				</b-modal>
+			</template>
+			<template>
+				<b-modal id="modal-delete-project" ref="deleteProjectModal" title="Delete Project"
+					ok-variant="secondary" cancel-variant="outline-light" @show="clearForm"
+					@ok="deleteProject" centered>
+					<div v-if="form.message" class="text-light modal-error-message">{{form.message}}</div>
+					<form ref="deleteProjectForm">
+						<b-form-group label="Name" label-for="project-name-input">
+							<b-form-select name="project-name-input" class="form-select" v-model="form.name" v-bind:class="{'normal': !(form.message && !form.name), 'error': form.message && !form.name}" :state="form.name" required>
+								<b-form-select-option :value="null">Select a Project</b-form-select-option>
+								<b-form-select-option v-for="option in project_list" :value="option">{{option}}</b-form-select-option>
+							</b-form-select>
+						</b-form-group>					
+					</form>
+				</b-modal>
+			</template>
+			<template>
+				<b-modal id="modal-add-data" ref="addDataModal" title="Add Data"
+					ok-variant="secondary" cancel-variant="outline-light" @show="clearForm"
+					@ok="addData" centered>
+					<div v-if="form.message" class="text-light modal-error-message">{{form.message}}</div>
+					<form ref="addDataForm">
+						<b-form-group label="New Data File" label-for="data-file-input">
+							 <b-form-file name="data-file-input" accept=".csv" placeholder="Choose a file or drop it here" drop-placeholder="Drop file here" v-model="form.file" v-bind:class="{'normal': !(form.message && !form.file), 'error': form.message && !form.file}" required></b-form-file>
+						</b-form-group>
+					</form>
+				</b-modal>
+			</template>
+			<!-- <template>
+				<b-modal id="modal-rd" ref="RDModal" title="Adjust RD Grade" ok-variant="secondary" cancel-variant="outline-light" @show="clearForm" @ok="() => adjustCutoff('rd_cutoff')" centered>
+					<div v-if="project && project.algorithm">
+						<attribute name="Default" v-bind:value="project.algorithm.default_rd_cutoff.toFixed(4)"></attribute>
+						<attribute name="Current" v-bind:value="(project.algorithm.default_rd_cutoff + parseFloat(form.rd_cutoff_adjustment)).toFixed(4) + ' (' + (parseFloat(form.rd_cutoff_adjustment) >= 0 ? ' +' : ' ') + parseFloat(form.rd_cutoff_adjustment).toFixed(3) + ')'"></attribute>
+						<form ref="rdAdjustmentForm">
+							<b-form-group label="Adjust" label-for="rd-adjustment">
+								<b-form-input name="rd-adjustment" type="range" :min="minRDAdjustmentValue" :max="maxRDAdjustmentValue" step="0.0001"variant="secondary" v-model="form.rd_cutoff_adjustment"></b-form-input>
+							</b-form-group>
+						</form>
+					</div>
+				</b-modal>
+			</template> -->
+			<template>
+				<b-modal id="modal-answer-details" ref="answerDetailsModal" title="Answer Details" size="xl" ok-variant="secondary" ok-only scrollable @show="setTimeout(drawAnswerCharts, 500)" @hide="clearSelection">
+					<div v-if="project && project.selected_answer_index != null" :set="answer = project.dataset.answers[getOriginalIndex(project.selected_answer_index)]">
+						<div>
+							<attribute name="ID" v-bind:value="answer.id"></attribute>
+							<attribute name="Text" v-bind:value="answer.text"></attribute>
+							<attribute name="Density" v-bind:value="project.algorithm.densities[project.selected_answer_index].toFixed(4)"></attribute>
+							<attribute name="Spaciousness" v-bind:value="project.algorithm.spaciousness[project.selected_answer_index].toFixed(4)">
+						</div>
+						<div class="answer-representation-list">
+							<b-table-lite id="answer-representation-table" ref="answerRepresentationTable" caption="Representation" fixed stripped borded hove samll dark caption-top :items="reducedAnswerMap.get(project.selected_answer_index).representations" :fields="answerRepresentationFields">
+								<template #table-caption>
+									<h6 class="text-light">Representations</h6>
+								</template>
+								<template #cell(index)="data">{{data.index + 1}}</template>
+								<template #cell(id)="data">
+									<div>{{project.dataset.answers[data.item].id}}</div>
+								</template>
+								<template #cell(text)="data">
+									<div>{{project.dataset.answers[data.item].text}}</div>
+								</template>
+							</b-table-lite>
+						</div>
+						<div class="answer-neighbour-list">
+							<div class="answer-graphs">
+								<b-row class="no-gutters">
+									<b-col><canvas ref="answerDistanceChart"></canvas></b-col>
+								</b-row>
+								<b-row class="no-gutters">
+									<b-col><canvas ref="answerRankedDensityLineChart"></canvas></b-col>
+									<b-col><canvas ref="answerRankedSpaciousnessLineChart"></canvas></b-col>
+								</b-row>
+							</div>
+							<b-table-lite id="answer-neighbour-table" ref="answerNeighbourTable" caption="Nearest Neighbours Details" fixed striped bordered hover small dark selectable caption-top :items="answerNeighbours[project.selected_answer_index]" :fields="answerNeighbourFields">
+								<template #table-caption>
+									<h6 class="text-light">Nearest Neighbours Details</h6>
+								</template>
+								<template #cell(id)="data">
+									<div>{{project.dataset.answers[getOriginalIndex(data.item)].id}}</div>
+								</template>
+								<template #cell(text)="data">
+									<div>{{project.dataset.answers[getOriginalIndex(data.item)].text}}</div>
+								</template>
+								<template #cell(assigned_grade)="data">
+									<div :set="value = getAssignedGrade(data.item)">
+										<!-- <div>{{value[0] ? (project.results == null ? "Unknown" : "Predicted " + project.results[getOriginalIndex(data.item)]) : value[1]}}</div> -->
+										<div v-if="value[0]">
+											<b-form-select class="form-select" v-model="localLabels[data.item]" @change="answerGradeChanged(data.item, $event)">
+												<!-- <b-form-select-option v-if="project.results == null" :value="null">Unknown</b-form-select-option> -->
+												<b-form-select-option :value="null">
+													{{project.results == null ? "Unknown" : "Predicted " + project.results[getOriginalIndex(data.item)]}}
+												</b-form-select-option>
+												<b-form-select-option v-for="option in project.possible_grades" :value="option">{{option}}</b-form-select-option>
+											</b-form-select>
+										</div>
+										<div v-if="!value[0]">{{value[1]}}</div>
+									</div>
+								</template>
+								<template #cell(distance)="data">
+									<div>{{project.algorithm.reduced_data_distances[project.selected_answer_index][data.item].toFixed(4)}}</div>
+								</template>
+								<!-- <template #cell(within_rd)="data">
+									<div>{{project.algorithm.reduced_data_distances[project.selected_answer_index][data.item] <= project.algorithm.rd_cutoff}}</div>
+								</template> -->
+								<template #cell(density)="data">
+									<div>{{project.algorithm.densities[data.item].toFixed(4)}}</div>
+								</template>
+								<template #cell(spaciousness)="data">
+									<div>{{project.algorithm.spaciousness[data.item].toFixed(4)}}</div>
+								</template>
+							</b-table-lite>
+						</div>
+					</div>
+				</b-modal>
+			</template>
+			<template>
+				<b-modal id="modal-grading-confirmation" ref="gradingConfirmationModal" title="Confirm Grading" size="xl" ok-variant="secondary" cancel-variant="outline-light" @ok="markAnswers">
+					<div class="text-light modal-error-message">You are about to grade the following answers. Please note that you cannot change the grade later.</div>
+					<b-table-lite id="grading-confirmation-table" ref="gradingConfirmationTable" caption="Grading Details" fixed striped bordered hover small dark selectable caption-top :items="Object.keys(form.answer_label_dict)" :fields="gradingConfirmationFields">
+						<template #table-caption>
+							<h6 class="text-light">Grading Details</h6>
+						</template>
+						<template #cell(index)="data">{{data.index + 1}}</template>
+						<template #cell(id)="data">
+							<div>{{project.dataset.answers[data.item].id}}</div>
+						</template>
+						<template #cell(text)="data">
+							<div>{{project.dataset.answers[data.item].text}}</div>
+						</template>
+						<template #cell(predicted_grade)="data">
+							<div :set="value = getAssignedGrade(data.item, false)">
+								<div>{{project.results == null ? "Unknown" : "Predicted " + project.results[data.item]}}</div>
+							</div>
+						</template>
+						<template #cell(assigned_grade)="data">
+							<div :set="value = getAssignedGrade(data.item, false)">
+								<div>{{form.answer_label_dict[data.item]}}</div>
+							</div>
+						</template>
+					</b-table-lite>
+				</b-modal>
+			</template>
+		</div>
+	</body>
+</html>

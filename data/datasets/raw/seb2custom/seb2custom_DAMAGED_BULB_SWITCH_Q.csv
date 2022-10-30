@@ -1,0 +1,103 @@
+Question ID,Question Text,Answer ID,Answer Text,Is Reference
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer71,A damaged bulb and an open switch both create a gap and cause bulbs to go out,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer72,both a damaged bulb and an open switch cause bulbs to go out,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer73,a damaged bulb and an open switch create a gap,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer74,there is a gap,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer75,there is a gap in the circuit,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer76,they are the same,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer77,same,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer78,the damaged bulb has the same effect as the switch,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer79,both create a gap,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,answer80,they do the same thing,True
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj3-l1.qa101,it acts in the same manner,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj3-l1.qa102,its acts the same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj3-l1.qa103,the bulb creates a gap and so does an open switch,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj7-l1.qa95,it acts the same way,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj7-l1.qa96,they both create a gap in the path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj8-l1.qa119,a damaged bulb creates a gap. an open switch creates in incomplete path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj8-l1.qa120,a damaged bulb creates a gap while an open switch creates a incomplete path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj8-l1.qa121,a damaged bulb creates a gap while and open switch creates an incomplete circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj8-l1.qa122,An open switch causes an incomplete circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj9-l1.qa95,A damaged bulb and open switch created gaps in the path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj10-l1.qa114,they are the same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj11-l1.qa120,the connect the circuit.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj11-l1.qa121,they create gaps in the circuit.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj12-l1.qa90,Same effect,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj12-l1.qa91,Both create a gap in the path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj13-l1.qa113,it creates a gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj13-l1.qa114,it is a gap in the circuit.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj14-l1.qa111,They both have opened paths.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj14-l1.qa112,They both have gaps.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj15-l1.qa128,both dont allow for a closed path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj15-l1.qa129,both create a gap,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj18-l1.qa97,It acts the same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj18-l1.qa98,It is the same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj18-l1.qa99,A damaged bulb is the same as an open switch.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj18-l1.qa100,A damaged bulb and an open switch are the same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj19-l1.qa127,creates a gap,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj19-l1.qa128,open path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj19-l1.qa129,it creates a gap and makes a open path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj22-l1.qa113,it is the same. they both create gaps,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj22-l1.qa115,the bulb and the switch create gaps,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj23-l1.qa98,It is very similar.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj23-l1.qa99,They both create a gap in the circuit.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj24-l1.qa106,it is like an open switch,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj24-l1.qa107,they are both open,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj24-l1.qa108,each will create an open path in circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj26-l1.qa119,the same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj27-l1.qa105,it is the same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj27-l1.qa106,they both create a gap,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj29-l1.qa110,both can be gaps in a circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj30-l1.qa97,Same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj31-l1.qa100,same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj33-l1.qa97,it acts the same,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj33-l1.qa98,both a damaged bulb and open switch create a gap in the path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj34-l1.qa92,It has the same effect,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj34-l1.qa93,They both open the path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj35-l1.qa100,It creates a gap in the path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj35-l1.qa101,It also prevents the bulb from being on.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj35-l1.qa102,A damaged bulb prevents other bulbs from being on.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj35-l1.qa103,A switch causes an incomplete path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj36-l1.qa105,they both create gaps,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj38-l1.qa93,they are the same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj39-l1.qa116,Their results are similar.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj39-l1.qa117,They both create a gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj40-l1.qa109,both create gaps.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj43-l1.qa107,a damaged bulb has the same effect of an open switch,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj43-l1.qa108,a damaged bulb is the same as an open switch,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj43-l1.qa109,a damaged bulb is like an open switch,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj45-l1.qa94,the have the same effect on the circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj45-l1.qa95,both a damaged bulb and an open switch creates a gap in the circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj46-l1.qa107,same thing,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj47-l1.qa121,both function the same and interfer with the bulb turning on,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbj48-l1.qa95,they both creat gaps in the path,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb1-l1.qa81,It has the same effect.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb2-l1.qa89,They both create gaps.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb3-l1.qa96,I dont know,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb4-l1.qa81,it is very similar,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb5-l1.qa91,they behave identically,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb7-l1.qa81,They are similar.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb9-l1.qa84,The effect is the same. They both create a gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb11-l1.qa83,"It would not appear to be damaged, because an open switch creates a gap.",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb12-l1.qa84,They both create a gap in the circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb13-l1.qa82,They both have a gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb15-l1.qa83,they both have the ability to create gaps.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb16-l1.qa83,"same result, but a switch can be closed",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb18-l1.qa90,It works the same way.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb19-l1.qa86,the switch can close and the gap would be gone but the a damaged bulb will always have a gap in the circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb20-l1.qa92,A damaged bulb creates a gap in the path. An open switch creates a gap in the path.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb24-l1.qa87,they both act the same way,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb25-l1.qa83,"Open switch is just creating a gap, nothing is being damaged.",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb26-l1.qa81,They have an identical impact on the circut.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb29-l1.qa84,"it acts in the same way, creating a gap",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb30-l1.qa81,a damaged bulb has the same effect as an open switch.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb31-l1.qa81,they both damage the circuit,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb32-l1.qa83,It creates an open gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb34-l1.qa81,The damabed bulb and the open switch disrupt the flow of the current.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb35-l1.qa81,They are functionally the same.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb36-l1.qa81,the damaged bulb does the same thing as an open switch by creating a gap but the damaged bulb cannot fix its self to recreate the current as a switch can turn the current on and off.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb37-l1.qa81,"The both don""t work",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb38-l1.qa82,Both a damaged bulb and open switch will disconnect the circuit.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb40-l1.qa81,They are the same because they create a gap.,False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb41-l1.qa82,"An open switch means a closed pathway, where as a damaged bulb means a gap, and they both cause the circuit not to work properly.",False
+seb2custom:DAMAGED_BULB_SWITCH_Q,How does a damaged bulb compare to an open switch?,SwitchesBulbsSeries-DAMAGED_BULB_SWITCH_Q.sbjb42-l1.qa82,it creates the same effect,False
