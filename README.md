@@ -100,6 +100,7 @@ The main client panel of PerceptiveGrader. The project screen displays the key c
 <img width="692" alt="Screenshot 2022-10-30 at 2 04 10 PM" src="https://user-images.githubusercontent.com/8808539/198864978-5dd61c37-d027-4444-8a52-8c504b83e7c2.png">
 The annotation panel (left) where the top ranked answers may be assessed and graded.  Clicking on an answer row would bring up the answer panel (right) that details neighborhood of the answer.
 
-
+## Acknowledgement
+The work described in this paper was fully supported by a grant from the Research Grants Council of the Hong Kong Special Administrative Region, China (UGC/FDS16/E10/19).
 
 
