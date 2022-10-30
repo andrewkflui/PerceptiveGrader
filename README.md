@@ -2,7 +2,7 @@
 
 A web-based demonstration system of short answer grading based on interactive model building with active learning
 
-Copyright (C) 2021 - Andrew Lui, Vanessa Ng, Stella Cheung Wing-Nga
+Copyright (C) 2021 - Andrew Kwok-Fai Lui, Vanessa Sin-Chun Ng, Stella Cheung Wing-Nga
 
 The Open University of Hong Kong
 
